@@ -7,20 +7,22 @@ import ui.DVDLibraryView;
 import ui.UserIO;
 import ui.UserIOConsoleImpl;
 
+import java.util.List;
+
 public class DVDLibraryController {
 
     private UserIO userInput = new UserIOConsoleImpl();
     private DVDLibraryDao data = new DVDLibraryDaoFileImpl();
     private DVDLibraryView view = new DVDLibraryView();
 
-    public void run(){
+    public void run() {
         boolean keepGoing = true;
         int menuSelection;
 
-        while(keepGoing) {
+        while (keepGoing) {
             menuSelection = getMenuSelection();
 
-            switch(menuSelection) {
+            switch (menuSelection) {
                 case 1:
                     listDVDs();
                     break;
@@ -50,34 +52,129 @@ public class DVDLibraryController {
         return view.printMenuAndGetSelection();
     }
 
-    private void createDVD(){
+    private void createDVD() {
         DVD dvd = view.getNewDVDInfo();
-        view.displayCreateDVDBanner();
         data.addDVD(dvd.getDvdId(), dvd);
+        view.displayCreateDVDBanner();
         view.displayCreateDVDSuccessBanner();
     }
 
-    private void getDVD(){
-
+    private void getDVD() {
+        String dvdId = view.getDVDIdChoice();
+        DVD dvd = data.getDVD(dvdId);
+        view.displayDVDBanner();
+        view.displayDVD(dvd);
     }
 
-    private void listDVDs(){
-
+    private void listDVDs() {
+        List<DVD> dvdList = data.getAllDVDs();
+        view.displayAllDVDBanner();
+        view.displayAllDVDs(dvdList);
     }
 
-    private void editDVD(){
-
+    private void removeDVD() {
+        String dvdId = view.getDVDIdChoice();
+        DVD dvd = data.removeDVD(dvdId);
+        view.displayRemoveDVD(dvd);
     }
 
-    private void removeDVD(){
+    private void editDVD() {
+        view.displayEditDVDBanner();
 
+        String dvdId = view.getDVDIdChoice();
+        DVD dvd = data.getDVD(dvdId);
+
+        if (dvd != null) {
+            int editMenuSelection;
+            boolean keepGoing = true;
+
+            view.displayDVD(dvd);
+
+            while (keepGoing) {
+                editMenuSelection = view.printEditMenuAndGetSelection();
+
+                switch (editMenuSelection) {
+                    case 1:
+                        editDVDTitle(dvdId);
+                        break;
+                    case 2:
+                        editDVDReleaseDate(dvdId);
+                        break;
+                    case 3:
+                        editDVDMpaaRating(dvdId);
+                        break;
+                    case 4:
+                        editDVDDirectorName(dvdId);
+                        break;
+                    case 5:
+                        editDVDStudio(dvdId);
+                        break;
+                    case 6:
+                        editDVDUserRating(dvdId);
+                        break;
+                    case 7:
+                        keepGoing = false;
+                        break;
+                    default:
+                        unknownCommand();
+                }
+                if (keepGoing = false) {
+                    break;
+                }
+            }
+
+        } else {
+            view.displayNullDVDSelection();
+        }
     }
 
-    private void unknownCommand(){
+    public void editDVDTitle(String dvdId) {
+        view.displayEditDVDField("Title");
+        String newValue = view.getNewDVDFieldValue("Release Date");
+        DVD editedDVD = data.editDVDTitle(dvdId, newValue);
+        view.displayEditSuccess();
+    }
+
+    public void editDVDReleaseDate(String dvdId) {
+        view.displayEditDVDField("Release Date");
+        String newValue = view.getNewDVDFieldValue("Release Date");
+        DVD editedDVD = data.editDVDReleaseDate(dvdId, newValue);
+        view.displayEditSuccess();
+    }
+
+    public void editDVDMpaaRating(String dvdId) {
+        view.displayEditDVDField("MPAA Rating");
+        String newValue = view.getNewDVDFieldValue("Release Date");
+        DVD editedDVD = data.editDVDMpaaRating(dvdId, newValue);
+        view.displayEditSuccess();
+    }
+
+    public void editDVDDirectorName(String dvdId) {
+        view.displayEditDVDField("Director Name");
+        String newValue = view.getNewDVDFieldValue("Release Date");
+        DVD editedDVD = data.editDVDDirectorName(dvdId, newValue);
+        view.displayEditSuccess();
+    }
+
+    public void editDVDStudio(String dvdId) {
+        view.displayEditDVDField("Studio");
+        String newValue = view.getNewDVDFieldValue("Release Date");
+        DVD editedDVD = data.editDVDStudio(dvdId, newValue);
+        view.displayEditSuccess();
+    }
+
+    public void editDVDUserRating(String dvdId) {
+        view.displayEditDVDField("User Rating");
+        String newValue = view.getNewDVDFieldValue("Release Date");
+        DVD editedDVD = data.editDVDUserRating(dvdId, newValue);
+        view.displayEditSuccess();
+    }
+
+    private void unknownCommand() {
         view.displayUnknownCommandBanner();
     }
 
-    private void exitMessage(){
+    private void exitMessage() {
         view.displayExitBanner();
     }
 

@@ -30,4 +30,53 @@ public class DVDLibraryDaoFileImpl implements DVDLibraryDao {
     public DVD removeDVD(String dvdId) {
         return dvds.remove(dvdId);
     }
+
+    @Override
+    public DVD editDVDTitle(String dvdId, String title) {
+        DVD newDVD = getDVD(dvdId);
+        newDVD.setTitle(title);
+        dvds.put(dvdId, newDVD);
+        return newDVD;
+    }
+
+    @Override
+    public DVD editDVDReleaseDate(String dvdId, String releaseDate) {
+        DVD newDVD = getDVD(dvdId);
+        newDVD.setTitle(releaseDate);
+        dvds.put(dvdId, newDVD);
+        return newDVD;
+    }
+
+    @Override
+    public DVD editDVDMpaaRating(String dvdId, String mpaaRating) {
+        DVD newDVD = getDVD(dvdId);
+        newDVD.setTitle(mpaaRating);
+        dvds.put(dvdId, newDVD);
+        return newDVD;
+    }
+
+    @Override
+    public DVD editDVDDirectorName(String dvdId, String directorName) {
+        DVD newDVD = getDVD(dvdId);
+        newDVD.setTitle(directorName);
+        dvds.put(dvdId, newDVD);
+        return newDVD;
+    }
+
+    @Override
+    public DVD editDVDStudio(String dvdId, String studio) {
+        DVD newDVD = getDVD(dvdId);
+        newDVD.setTitle(studio);
+        dvds.put(dvdId, newDVD);
+        return newDVD;
+    }
+
+    @Override
+    public DVD editDVDUserRating(String dvdId, String userRating) {
+        DVD newDVD = getDVD(dvdId);
+        newDVD.setTitle(userRating);
+        dvds.put(dvdId, newDVD);
+        return newDVD;
+    }
+
 }
