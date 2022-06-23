@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface DVDLibraryDao {
 
-    DVD addDVD(DVD dvdId, DVD dvd);
+    DVD addDVD(String dvdId, DVD dvd);
 
     List<DVD> getAllDVDs();
 

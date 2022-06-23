@@ -14,6 +14,16 @@ public class DVD {
         this.dvdId = dvdId;
     }
 
+    public DVD(String dvdId, String title, String releaseDate, String mpaaRating, String directorName, String studio, String userRating) {
+        this.dvdId = dvdId;
+        this.title = title;
+        this.releaseDate = releaseDate;
+        this.mpaaRating = mpaaRating;
+        this.directorName = directorName;
+        this.studio = studio;
+        this.userRating = userRating;
+    }
+
     public String getDvdId() {
         return dvdId;
     }
