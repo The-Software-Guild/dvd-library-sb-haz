@@ -33,12 +33,14 @@ public class DVDLibraryController {
                     getDVD();
                     break;
                 case 4:
+                    searchDVD();
+                case 5:
                     editDVD();
                     break;
-                case 5:
+                case 6:
                     removeDVD();
                     break;
-                case 6:
+                case 7:
                     exitMessage();
                     break;
                 default:
@@ -70,6 +72,13 @@ public class DVDLibraryController {
         List<DVD> dvdList = data.getAllDVDs();
         view.displayAllDVDBanner();
         view.displayAllDVDs(dvdList);
+    }
+
+    private void searchDVD() {
+        String title = view.getDVDTitleChoice();
+        view.displayFindDVDbyTitleBanner(title);
+        List<DVD> filteredDVDs = data.findDVD(title);
+        view.displayAllDVDs(filteredDVDs);
     }
 
     private void removeDVD() {

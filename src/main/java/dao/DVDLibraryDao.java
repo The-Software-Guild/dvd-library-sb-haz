@@ -12,6 +12,8 @@ public interface DVDLibraryDao {
 
     DVD getDVD(String dvdId);
 
+    List<DVD> findDVD(String title);
+
     DVD removeDVD(String dvdId);
 
     DVD editDVDTitle(String dvdId, String title);

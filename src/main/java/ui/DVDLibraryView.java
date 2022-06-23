@@ -28,7 +28,7 @@ public class DVDLibraryView {
     }
 
     public void displayCreateDVDBanner() {
-        displayBannerMessage("Create Student");
+        displayBannerMessage("Create DVD");
     }
 
     public void displayCreateDVDSuccessBanner() {
@@ -46,7 +46,7 @@ public class DVDLibraryView {
             io.print("Studio: " + dvd.getStudio());
             io.print("User Rating: " + dvd.getUserRating());
         } else {
-            io.print("No such student.");
+            io.print("No such DVD.");
         }
         io.readString("Please hit enter to continue");
     }
@@ -75,6 +75,11 @@ public class DVDLibraryView {
         displayBannerMessage("Display All DVDs");
     }
 
+
+    // Find DVD
+    public void displayFindDVDbyTitleBanner(String title) {
+        displayBannerMessage("DVDs named " + title);
+    }
 
     // Remove DVD
     public void displayRemoveDVD(DVD dvd) {
@@ -112,12 +117,13 @@ public class DVDLibraryView {
     // Show Menu Options
     public int printMenuAndGetSelection() {
         io.print("Main Menu");
-        io.print("1. List Students");
-        io.print("2. Create New Student");
-        io.print("3. View a Student");
-        io.print("4. Edit a Student");
-        io.print("5. Remove a Student");
-        io.print("6. Exit");
+        io.print("1. List DVD");
+        io.print("2. Create New DVD");
+        io.print("3. View a DVD");
+        io.print("4. Search for a DVD");
+        io.print("5. Edit a DVD");
+        io.print("6. Remove a DVD");
+        io.print("7. Exit");
 
         return io.readInt("Please select from the above choices.", 1, 6);
     }
@@ -140,6 +146,10 @@ public class DVDLibraryView {
     // Get user DVD choice
     public String getDVDIdChoice() {
         return io.readString("Please enter the DVD ID.");
+    }
+
+    public String getDVDTitleChoice(){
+        return io.readString("Please enter the DVD Title.");
     }
 
     // Banner Template

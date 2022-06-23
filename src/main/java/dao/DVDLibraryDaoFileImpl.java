@@ -27,6 +27,15 @@ public class DVDLibraryDaoFileImpl implements DVDLibraryDao {
     }
 
     @Override
+    public List<DVD> findDVD(String title) {
+        List<DVD> filteredDVDs = new ArrayList<>();
+        for (DVD dvd : dvds.values()) {
+            filteredDVDs.add(dvd);
+        }
+        return filteredDVDs;
+    }
+
+    @Override
     public DVD removeDVD(String dvdId) {
         return dvds.remove(dvdId);
     }
