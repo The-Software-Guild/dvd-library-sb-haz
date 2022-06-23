@@ -148,7 +148,7 @@ public class DVDLibraryView {
         return io.readString("Please enter the DVD ID.");
     }
 
-    public String getDVDTitleChoice(){
+    public String getDVDTitleChoice() {
         return io.readString("Please enter the DVD Title.");
     }
 
@@ -165,5 +165,11 @@ public class DVDLibraryView {
     // Unknown Command
     public void displayUnknownCommandBanner() {
         io.print("Unknown command.");
+    }
+
+    // Error
+    public void displayErrorMessage(String errorMsg) {
+        displayBannerMessage("ERROR");
+        io.print(errorMsg);
     }
 }
