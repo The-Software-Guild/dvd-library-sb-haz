@@ -1,0 +1,6 @@
+# Maven
+target/
+
+# Default ignored files
+/shelf/
+/workspace.xml
