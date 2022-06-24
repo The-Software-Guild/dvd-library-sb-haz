@@ -2,18 +2,20 @@ package controller;
 
 import dao.DVDLibraryDao;
 import dao.DVDLibraryDaoException;
-import dao.DVDLibraryDaoFileImpl;
 import dto.DVD;
 import ui.DVDLibraryView;
-import ui.UserIO;
-import ui.UserIOConsoleImpl;
 
 import java.util.List;
 
 public class DVDLibraryController {
 
-    private DVDLibraryDao data = new DVDLibraryDaoFileImpl();
-    private DVDLibraryView view = new DVDLibraryView();
+    private DVDLibraryDao data;
+    private DVDLibraryView view;
+
+    public DVDLibraryController(DVDLibraryDao data, DVDLibraryView view) {
+        this.data = data;
+        this.view = view;
+    }
 
     public void run() {
         boolean keepGoing = true;

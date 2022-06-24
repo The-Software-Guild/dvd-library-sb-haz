@@ -6,7 +6,11 @@ import java.util.List;
 
 public class DVDLibraryView {
 
-    private UserIO io = new UserIOConsoleImpl();
+    private UserIO io;
+
+    public DVDLibraryView(UserIO ui) {
+        this.io = io;
+    }
 
     private final String BANNER_MESSAGE_PREFIX = "-===- ";
     private final String BANNER_MESSAGE_SUFFIX = " -===-";
