@@ -15,12 +15,12 @@ public class DVDLibraryView {
     // Add DVD
     public DVD getNewDVDInfo() {
         String dvdId = io.readString("Please enter the DVD ID");
-        String title = io.readString("Please enter the DVD ID");
-        String releaseDate = io.readString("Please enter the DVD ID");
-        String mpaaRating = io.readString("Please enter the DVD ID");
-        String directorName = io.readString("Please enter the DVD ID");
-        String studio = io.readString("Please enter the DVD ID");
-        String userRating = io.readString("Please enter the DVD ID");
+        String title = io.readString("Please enter the DVD Title");
+        String releaseDate = io.readString("Please enter the DVD Release Date");
+        String mpaaRating = io.readString("Please enter the DVD MPAA Rating");
+        String directorName = io.readString("Please enter the DVD Directors Name");
+        String studio = io.readString("Please enter the DVD Studio");
+        String userRating = io.readString("Please enter the DVD User Rating");
 
         DVD dvd = new DVD(dvdId, title, releaseDate, mpaaRating, directorName, studio, userRating);
 

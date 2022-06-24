@@ -12,7 +12,6 @@ import java.util.List;
 
 public class DVDLibraryController {
 
-    private UserIO userInput = new UserIOConsoleImpl();
     private DVDLibraryDao data = new DVDLibraryDaoFileImpl();
     private DVDLibraryView view = new DVDLibraryView();
 
