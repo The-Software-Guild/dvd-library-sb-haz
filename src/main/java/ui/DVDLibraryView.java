@@ -8,7 +8,7 @@ public class DVDLibraryView {
 
     private UserIO io;
 
-    public DVDLibraryView(UserIO ui) {
+    public DVDLibraryView(UserIO io) {
         this.io = io;
     }
 

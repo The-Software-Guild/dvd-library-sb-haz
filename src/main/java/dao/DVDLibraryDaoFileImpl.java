@@ -54,6 +54,7 @@ public class DVDLibraryDaoFileImpl implements DVDLibraryDao {
         DVD newDVD = getDVD(dvdId);
         newDVD.setTitle(title);
         dvds.put(dvdId, newDVD);
+        writeDVDsToFile();
         return newDVD;
     }
 
@@ -62,6 +63,7 @@ public class DVDLibraryDaoFileImpl implements DVDLibraryDao {
         DVD newDVD = getDVD(dvdId);
         newDVD.setTitle(releaseDate);
         dvds.put(dvdId, newDVD);
+        writeDVDsToFile();
         return newDVD;
     }
 
@@ -70,6 +72,7 @@ public class DVDLibraryDaoFileImpl implements DVDLibraryDao {
         DVD newDVD = getDVD(dvdId);
         newDVD.setTitle(mpaaRating);
         dvds.put(dvdId, newDVD);
+        writeDVDsToFile();
         return newDVD;
     }
 
@@ -78,6 +81,7 @@ public class DVDLibraryDaoFileImpl implements DVDLibraryDao {
         DVD newDVD = getDVD(dvdId);
         newDVD.setTitle(directorName);
         dvds.put(dvdId, newDVD);
+        writeDVDsToFile();
         return newDVD;
     }
 
@@ -86,6 +90,7 @@ public class DVDLibraryDaoFileImpl implements DVDLibraryDao {
         DVD newDVD = getDVD(dvdId);
         newDVD.setTitle(studio);
         dvds.put(dvdId, newDVD);
+        writeDVDsToFile();
         return newDVD;
     }
 
@@ -94,6 +99,7 @@ public class DVDLibraryDaoFileImpl implements DVDLibraryDao {
         DVD newDVD = getDVD(dvdId);
         newDVD.setTitle(userRating);
         dvds.put(dvdId, newDVD);
+        writeDVDsToFile();
         return newDVD;
     }
 

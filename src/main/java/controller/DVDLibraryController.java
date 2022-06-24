@@ -37,6 +37,7 @@ public class DVDLibraryController {
                         break;
                     case 4:
                         searchDVD();
+                        break;
                     case 5:
                         editDVD();
                         break;
@@ -48,6 +49,7 @@ public class DVDLibraryController {
                         break;
                     default:
                         unknownCommand();
+                        break;
                 }
             }
             exitMessage();
@@ -144,43 +146,37 @@ public class DVDLibraryController {
     }
 
     public void editDVDTitle(String dvdId) throws DVDLibraryDaoException {
-        view.displayEditDVDField("Title");
-        String newValue = view.getNewDVDFieldValue("Release Date");
+        String newValue = view.getNewDVDFieldValue("Title");
         DVD editedDVD = data.editDVDTitle(dvdId, newValue);
         view.displayEditSuccess();
     }
 
     public void editDVDReleaseDate(String dvdId) throws DVDLibraryDaoException {
-        view.displayEditDVDField("Release Date");
         String newValue = view.getNewDVDFieldValue("Release Date");
         DVD editedDVD = data.editDVDReleaseDate(dvdId, newValue);
         view.displayEditSuccess();
     }
 
     public void editDVDMpaaRating(String dvdId) throws DVDLibraryDaoException {
-        view.displayEditDVDField("MPAA Rating");
-        String newValue = view.getNewDVDFieldValue("Release Date");
+        String newValue = view.getNewDVDFieldValue("MPAA Rating");
         DVD editedDVD = data.editDVDMpaaRating(dvdId, newValue);
         view.displayEditSuccess();
     }
 
     public void editDVDDirectorName(String dvdId) throws DVDLibraryDaoException {
-        view.displayEditDVDField("Director Name");
-        String newValue = view.getNewDVDFieldValue("Release Date");
+        String newValue = view.getNewDVDFieldValue("Directors Name");
         DVD editedDVD = data.editDVDDirectorName(dvdId, newValue);
         view.displayEditSuccess();
     }
 
     public void editDVDStudio(String dvdId) throws DVDLibraryDaoException {
-        view.displayEditDVDField("Studio");
-        String newValue = view.getNewDVDFieldValue("Release Date");
+        String newValue = view.getNewDVDFieldValue("Studio");
         DVD editedDVD = data.editDVDStudio(dvdId, newValue);
         view.displayEditSuccess();
     }
 
     public void editDVDUserRating(String dvdId) throws DVDLibraryDaoException {
-        view.displayEditDVDField("User Rating");
-        String newValue = view.getNewDVDFieldValue("Release Date");
+        String newValue = view.getNewDVDFieldValue("User Rating");
         DVD editedDVD = data.editDVDUserRating(dvdId, newValue);
         view.displayEditSuccess();
     }
